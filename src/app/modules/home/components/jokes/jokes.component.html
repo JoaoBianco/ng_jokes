@@ -1,0 +1,7 @@
+@if(jokes.jokes?.length) {
+<app-joke
+  *ngFor="let joke of jokes.jokes"
+  ngxMasonryItem
+  [joke]="joke"
+></app-joke>
+}

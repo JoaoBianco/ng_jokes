@@ -24,5 +24,5 @@ export interface Joke {
 export interface GetAllJokes {
   error: boolean
   amount: number
-  jokes: Joke[]
+  jokes?: Joke[]
 }

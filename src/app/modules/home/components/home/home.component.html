@@ -1,11 +1,1 @@
-<ng-container *ngFor="let joke of jokes.jokes">
-  <div *ngIf="joke.type === 'single'">
-    <h2>{{ joke.type }}</h2>
-    <p>{{ joke.joke }}</p>
-  </div>
-  <div *ngIf="joke.type === 'twopart'">
-    <h2>{{ joke.type }}</h2>
-    <p>{{ joke.setup }}</p>
-    <p>{{ joke.delivery }}</p>
-  </div>
-</ng-container>
+<app-jokes></app-jokes>

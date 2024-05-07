@@ -1,0 +1,17 @@
+<div class="joke">
+  <img
+    [src]="'https://picsum.photos/id/' + randomSeed + '/200/' + randomHeight"
+    alt=""
+  />
+  <div class="joke-content">
+    <div *ngIf="joke.type === 'single'">
+      <h2>{{ joke.type }}</h2>
+      <p>{{ joke.joke }}</p>
+    </div>
+    <div *ngIf="joke.type === 'twopart'">
+      <h2>{{ joke.type }}</h2>
+      <p>{{ joke.setup }}</p>
+      <p>{{ joke.delivery }}</p>
+    </div>
+  </div>
+</div>
