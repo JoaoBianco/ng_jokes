@@ -1,0 +1,27 @@
+.search-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  height: 50vh;
+}
+
+.search-checkbox-wrapper {
+  display: flex;
+}
+
+.search-header {
+  & input {
+    width: 100%;
+    padding: 1rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  width: 100%;
+}
+
+.search-filters {
+  display: flex;
+  gap: 1rem;
+}

@@ -1,0 +1,34 @@
+<section class="search-wrapper">
+  <header class="search-header">
+    <label for="search"></label>
+    <input name="search" type="text" />
+  </header>
+  <div class="search-filters">
+    <div>
+      <h3>Categories:</h3>
+      <div class="search-checkbox-wrapper">
+        @for (item of categories; track item) {
+        <div class="search-checkbox-item">
+          <input type="checkbox" name="{{ item }}" id="{{ item }}" /><label
+            for="{{ item }}"
+            >{{ item }}</label
+          >
+        </div>
+        }
+      </div>
+      <div>
+        <h3>Blacklist:</h3>
+        <div class="search-checkbox-wrapper">
+          @for (item of blacklists; track item) {
+          <div class="search-checkbox-item">
+            <input type="checkbox" name="{{ item }}" id="{{ item }}" /><label
+              for="{{ item }}"
+              >{{ item }}</label
+            >
+          </div>
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
