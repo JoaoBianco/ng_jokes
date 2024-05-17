@@ -1,7 +1,8 @@
 import { CommonModule } from '@angular/common'
 import { Component } from '@angular/core'
 import { JokesService } from '../../../../shared/services/jokes.service'
-import { GetAllJokes } from '../../../../shared/services/models/jokes.model'
+import { Joke } from '../../../../shared/services/models/jokes.model'
+import { jokesObservable } from '../../../../shared/services/observables/jokes.observable'
 import { JokeComponent } from '../joke/joke.component'
 
 @Component({
@@ -14,11 +15,16 @@ import { JokeComponent } from '../joke/joke.component'
 export class JokesComponent {
   constructor(private jokesService: JokesService) {}
 
-  jokes: GetAllJokes = {} as GetAllJokes
+  jokes: Joke[] = []
 
   ngOnInit() {
     this.jokesService.getAllJokes().subscribe((response) => {
-      this.jokes = response
+      if (response.jokes) {
+        jokesObservable.next(response.jokes)
+      }
+    })
+    jokesObservable.subscribe((jokes) => {
+      this.jokes = jokes
     })
   }
 }

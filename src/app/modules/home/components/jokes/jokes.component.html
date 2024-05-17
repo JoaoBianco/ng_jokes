@@ -1,9 +1,5 @@
 <div class="jokes-wrapper">
-  @if(jokes.jokes?.length) {
-  <app-joke
-    *ngFor="let joke of jokes.jokes"
-    ngxMasonryItem
-    [joke]="joke"
-  ></app-joke>
+  @if(jokes.length) {
+  <app-joke *ngFor="let joke of jokes" ngxMasonryItem [joke]="joke"></app-joke>
   }
 </div>

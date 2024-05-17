@@ -1,6 +1,8 @@
 import { Component } from '@angular/core'
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
+import { JokesService } from '../../../shared/services/jokes.service'
+import { jokesObservable } from '../../../shared/services/observables/jokes.observable'
 
 interface Form {
   categories: Array<{ value: string; checked: boolean }>
@@ -42,6 +44,8 @@ export class SearchComponent {
     search: '',
   }
 
+  constructor(private jokesService: JokesService) {}
+
   updateFormSearch(data: any) {
     this.form.search = data.target?.value
   }
@@ -55,8 +59,12 @@ export class SearchComponent {
     })
   }
 
-  submit(e: any) {
+  async submit(e: any) {
     e.preventDefault()
-    console.log('opa')
+    this.jokesService.getAllJokes().subscribe((response) => {
+      if (response.jokes) {
+        jokesObservable.next(response.jokes)
+      }
+    })
   }
 }
