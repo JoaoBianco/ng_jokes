@@ -61,10 +61,22 @@ export class SearchComponent {
 
   async submit(e: any) {
     e.preventDefault()
-    this.jokesService.getAllJokes().subscribe((response) => {
-      if (response.jokes) {
-        jokesObservable.next(response.jokes)
-      }
-    })
+    const categoriesFilter = this.form['categories']
+      .filter((category) => category.checked)
+      .map((category) => category.value)
+    const blacklistFilter = this.form['blacklists']
+      .filter((blacklist) => blacklist.checked)
+      .map((blacklist) => blacklist.value)
+
+    this.jokesService
+      .getJokesWithFilters(categoriesFilter, blacklistFilter, this.form.search)
+      .subscribe((response) => {
+        if (response.jokes) {
+          jokesObservable.next(response.jokes)
+        }
+        if (response.error) {
+          jokesObservable.next([])
+        }
+      })
   }
 }

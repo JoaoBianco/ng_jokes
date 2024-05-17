@@ -22,6 +22,9 @@ export class JokesComponent {
       if (response.jokes) {
         jokesObservable.next(response.jokes)
       }
+      if (response.error) {
+        jokesObservable.next([])
+      }
     })
     jokesObservable.subscribe((jokes) => {
       this.jokes = jokes

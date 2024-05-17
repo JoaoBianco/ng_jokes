@@ -15,4 +15,16 @@ export class JokesService {
       `${this.API_BASE_ROUTE}/joke/Any?amount=10`
     )
   }
+
+  getJokesWithFilters(
+    categories: string[],
+    blacklists: string[],
+    search?: string
+  ) {
+    return this.httpClient.get<GetAllJokes>(
+      `${this.API_BASE_ROUTE}/joke/${
+        categories?.length ? categories.join(',') : 'Any'
+      }?contains=${search}&amount=10&blacklistFlags=${blacklists?.join(',')}`
+    )
+  }
 }
