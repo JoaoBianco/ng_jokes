@@ -1,4 +1,6 @@
 import { Component } from '@angular/core'
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
+import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
 
 interface Form {
   categories: Array<{ value: string; checked: boolean }>
@@ -9,18 +11,20 @@ interface Form {
 @Component({
   selector: 'app-search',
   standalone: true,
-  imports: [],
+  imports: [FontAwesomeModule],
   templateUrl: './search.component.html',
   styleUrl: './search.component.scss',
 })
 export class SearchComponent {
+  faMagnifyingGlass = faMagnifyingGlass
+
   categories = [
     { value: 'programming', checked: false },
-    { value: 'misc', checked: false },
     { value: 'dark', checked: false },
     { value: 'pun', checked: false },
     { value: 'spooky', checked: false },
     { value: 'christmas', checked: false },
+    { value: 'misc', checked: false },
   ]
 
   blacklists = [
@@ -53,5 +57,6 @@ export class SearchComponent {
 
   submit(e: any) {
     e.preventDefault()
+    console.log('opa')
   }
 }

@@ -1,39 +1,40 @@
 <section class="search-wrapper">
-  <form (submit)="submit($event)">
+  <form class="search-form" (submit)="submit($event)">
     <header class="search-header">
-      <label for="search"></label>
-      <input name="search" type="text" (change)="updateFormSearch($event)" />
+      <label for="search">Search for a joke:</label>
+      <div class="search-header-input-wrapper">
+        <input name="search" type="text" (change)="updateFormSearch($event)" />
+        <button type="submit">
+          <fa-icon [icon]="faMagnifyingGlass"></fa-icon>
+        </button>
+      </div>
     </header>
     <div class="search-filters">
-      <div>
-        <h3>Categories:</h3>
-        <div class="search-checkbox-wrapper">
-          @for (item of categories; track item) {
-          <div class="search-checkbox-item">
-            <input
-              type="checkbox"
-              name="{{ item.value }}"
-              id="{{ item.value }}"
-              (change)="updateFormCheckboxes('categories', item.value)"
-            /><label for="{{ item.value }}">{{ item.value }}</label>
-          </div>
-          }
+      <h3>Categories:</h3>
+      <div class="search-checkbox-wrapper">
+        @for (item of categories; track item) {
+        <div class="search-checkbox-item">
+          <input
+            type="checkbox"
+            name="{{ item.value }}"
+            id="{{ item.value }}"
+            (change)="updateFormCheckboxes('categories', item.value)"
+          /><label for="{{ item.value }}">{{ item.value }}</label>
         </div>
-        <div>
-          <h3>Blacklist:</h3>
-          <div class="search-checkbox-wrapper">
-            @for (item of blacklists; track item) {
-            <div class="search-checkbox-item">
-              <input
-                type="checkbox"
-                name="{{ item.value }}"
-                id="{{ item.value }}"
-                (change)="updateFormCheckboxes('blacklists', item.value)"
-              /><label for="{{ item.value }}">{{ item.value }}</label>
-            </div>
-            }
-          </div>
+        }
+      </div>
+      <h3>Blacklist:</h3>
+      <div class="search-checkbox-wrapper">
+        @for (item of blacklists; track item) {
+        <div class="search-checkbox-item">
+          <input
+            type="checkbox"
+            name="{{ item.value }}"
+            id="{{ item.value }}"
+            (change)="updateFormCheckboxes('blacklists', item.value)"
+          /><label for="{{ item.value }}">{{ item.value }}</label>
         </div>
+        }
       </div>
     </div>
   </form>

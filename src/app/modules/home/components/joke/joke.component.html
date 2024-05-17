@@ -1,6 +1,6 @@
 <div class="joke">
   <img
-    [src]="'https://picsum.photos/id/' + randomSeed + '/200/' + randomHeight"
+    [src]="'/assets/img/' + joke.category.toLocaleLowerCase() + '.jpg'"
     alt=""
   />
   <div class="joke-content">
