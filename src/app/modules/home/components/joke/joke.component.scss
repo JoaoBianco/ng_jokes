@@ -5,10 +5,18 @@
   background-color: #f9f9f9;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   overflow: hidden;
+  cursor: pointer;
 
   img {
     width: 100%;
     height: 100%;
     object-fit: cover;
   }
+}
+
+.joke-content-open {
+  position: absolute;
+  inset: 0;
+  background-color: white;
+  text-align: center;
 }

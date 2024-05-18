@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common'
-import { Component, Input } from '@angular/core'
+import { Component, HostBinding, Input } from '@angular/core'
 import { Joke } from '../../../../shared/services/models/jokes.model'
 
 @Component({
@@ -10,7 +10,11 @@ import { Joke } from '../../../../shared/services/models/jokes.model'
   styleUrl: './joke.component.scss',
 })
 export class JokeComponent {
-  randomSeed = (Math.random() * 30).toFixed(0)
-  randomHeight = (Math.random() * 100 + 300).toFixed(0)
+  @HostBinding('class') get class() {
+    return this.isJokeOpen ? 'joke-open' : ''
+  }
+
   @Input() joke: Joke = {} as Joke
+
+  isJokeOpen = false
 }

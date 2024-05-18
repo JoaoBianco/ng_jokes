@@ -4,4 +4,9 @@
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 1rem;
+
+  > .joke-open {
+    grid-column: 1 / 6;
+    grid-row: 1 / 2;
+  }
 }

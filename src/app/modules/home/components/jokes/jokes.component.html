@@ -1,6 +1,6 @@
 <div class="jokes-wrapper">
   @if(jokes.length) {
-  <app-joke *ngFor="let joke of jokes" ngxMasonryItem [joke]="joke"></app-joke>
+  <app-joke *ngFor="let joke of jokes" [joke]="joke"></app-joke>
   } @else {
   <p>No jokes found.</p>
   }
