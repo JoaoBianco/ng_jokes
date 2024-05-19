@@ -1,13 +1,10 @@
 <div class="joke" (click)="isJokeOpen = !isJokeOpen">
-  <img
-    [src]="'/assets/img/' + joke.category.toLocaleLowerCase() + '.jpg'"
-    alt=""
-  />
+  <img [src]="'/assets/img/' + joke.category.toLowerCase() + '.jpg'" alt="" />
   <div class="joke-content" [ngClass]="{ 'joke-content-open': isJokeOpen }">
-    <div *ngIf="joke.type === 'single'">
+    <div class="one-part-joke" *ngIf="joke.type === 'single'">
       <p>{{ joke.joke }}</p>
     </div>
-    <div *ngIf="joke.type === 'twopart'">
+    <div class="two-part-joke" *ngIf="joke.type === 'twopart'">
       <p>{{ joke.setup }}</p>
       <p>{{ joke.delivery }}</p>
     </div>
